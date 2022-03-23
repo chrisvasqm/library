@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.library.databinding.FragmentCatalogBinding
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 class CatalogFragment : Fragment() {
@@ -18,21 +20,22 @@ class CatalogFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val catalogViewModel: CatalogViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(CatalogViewModel::class.java)
 
         _binding = FragmentCatalogBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textCatalog
-        homeViewModel.text.observe(viewLifecycleOwner) {
+        catalogViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 
