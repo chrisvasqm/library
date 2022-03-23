@@ -3,8 +3,11 @@ package com.example.library.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CatalogViewModel : ViewModel() {
+@HiltViewModel
+class CatalogViewModel @Inject constructor(): ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is catalog Fragment"

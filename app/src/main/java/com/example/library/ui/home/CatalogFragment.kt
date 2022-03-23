@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.library.databinding.FragmentCatalogBinding
+import javax.inject.Inject
 
 class CatalogFragment : Fragment() {
 
