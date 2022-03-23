@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.library.databinding.FragmentFavoritesBinding
 
@@ -17,21 +18,22 @@ class FavoritesFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val favoritesViewModel: FavoritesViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(FavoritesViewModel::class.java)
 
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textFavorites
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        favoritesViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 

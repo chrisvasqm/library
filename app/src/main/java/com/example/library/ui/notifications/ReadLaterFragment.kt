@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.library.databinding.FragmentReadLaterBinding
 
@@ -17,21 +18,22 @@ class ReadLaterFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val readLaterViewModel: ReadLaterViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(ReadLaterViewModel::class.java)
 
         _binding = FragmentReadLaterBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textReadLater
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
+        readLaterViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
         return root
     }
 
