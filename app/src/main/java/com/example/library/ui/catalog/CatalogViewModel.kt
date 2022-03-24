@@ -1,4 +1,4 @@
-package com.example.library.ui.notifications
+package com.example.library.ui.catalog
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,10 +7,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ReadLaterViewModel @Inject constructor() : ViewModel() {
+class CatalogViewModel @Inject constructor(): ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is read later Fragment"
+        value = "This is catalog Fragment"
     }
     val text: LiveData<String> = _text
 }

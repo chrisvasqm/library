@@ -1,4 +1,4 @@
-package com.example.library.ui.notifications
+package com.example.library.ui.catalog
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.example.library.databinding.FragmentReadLaterBinding
+import com.example.library.databinding.FragmentCatalogBinding
 
-class ReadLaterFragment : Fragment() {
+class CatalogFragment : Fragment() {
 
-    private var _binding: FragmentReadLaterBinding? = null
+    private var _binding: FragmentCatalogBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val readLaterViewModel: ReadLaterViewModel by viewModels()
+    private val catalogViewModel: CatalogViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,11 +25,11 @@ class ReadLaterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentReadLaterBinding.inflate(inflater, container, false)
+        _binding = FragmentCatalogBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textReadLater
-        readLaterViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textCatalog
+        catalogViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
