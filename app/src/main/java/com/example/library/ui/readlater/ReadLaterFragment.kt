@@ -1,4 +1,4 @@
-package com.example.library.ui.dashboard
+package com.example.library.ui.readlater
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.example.library.databinding.FragmentFavoritesBinding
+import com.example.library.databinding.FragmentReadLaterBinding
 
-class FavoritesFragment : Fragment() {
+class ReadLaterFragment : Fragment() {
 
-    private var _binding: FragmentFavoritesBinding? = null
+    private var _binding: FragmentReadLaterBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val favoritesViewModel: FavoritesViewModel by viewModels()
+    private val readLaterViewModel: ReadLaterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,11 +25,11 @@ class FavoritesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
+        _binding = FragmentReadLaterBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textFavorites
-        favoritesViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textReadLater
+        readLaterViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 

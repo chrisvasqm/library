@@ -1,4 +1,4 @@
-package com.example.library.ui.dashboard
+package com.example.library.ui.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
