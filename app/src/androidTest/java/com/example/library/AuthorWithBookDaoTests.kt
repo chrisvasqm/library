@@ -46,8 +46,8 @@ class AuthorWithBookDaoTests {
     }
 
     @Test
-    fun getAll_WhenDataHasBeenSaved_ReturnsNotEmptyList() = runBlocking {
-        val author = Author(firstName = "f", lastName = "l")
+    fun getAll_WhenDataHasBeenSaved_ReturnsAuthorWithAllBooks() = runBlocking {
+        val author = Author(authorId = 1, firstName = "f", lastName = "l")
         authorDao.insert(author)
         val book = Book(coverImage = byteArrayOf(), title = "t", description = "d", authorId = author.authorId)
         bookDao.insert(book)
