@@ -3,4 +3,8 @@
     <string name="title_catalog">Catalog</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_read_later">Read Later</string>
+    <string name="book_cover_image">Book cover image</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="by_author">By Author</string>
 </resources>
